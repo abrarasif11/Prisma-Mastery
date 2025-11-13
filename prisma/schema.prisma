@@ -12,8 +12,7 @@ datasource db {
 generator client {
   provider = "prisma-client-js"
 }
-
-// schema setup // 
+ 
 model Post {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
