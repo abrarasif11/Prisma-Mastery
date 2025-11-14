@@ -11,5 +11,7 @@ const main = async () => {
   //     },
   //   });
   //   console.log(result);
+  const getAllFromDB = await prisma.post.findMany();
+  console.log(getAllFromDB);
 };
 main();
