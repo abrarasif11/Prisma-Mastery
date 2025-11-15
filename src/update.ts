@@ -14,14 +14,31 @@ const updates = async () => {
   //     },
   //   });
 
-  const updateMany = await prisma.post.updateMany({
+  //   const updateMany = await prisma.post.updateMany({
+  //     where: {
+  //       title: "Understanding Databases",
+  //     },
+  //     data: {
+  //       published: true,
+  //     },
+  //   });
+  //   console.log("updateMany");
+
+  //    Upsert
+
+  const upsertData = await prisma.post.upsert({
     where: {
-      title: "Understanding Databases",
+      id: 1,
     },
-    data: {
-      published: true,
+    update: {
+      title: "Advanced Java Concepts",
+    },
+    create: {
+      title: "New java Title",
+      content: "JavaScript is essential for building dynamic web applications",
+      author: "Martinez",
     },
   });
-  console.log("updateMany");
+  console.log(upsertData);
 };
 updates();
