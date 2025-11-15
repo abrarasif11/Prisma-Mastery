@@ -30,6 +30,28 @@ const filtering = async () => {
       ],
     },
   });
-  console.log(orFiltering);
+
+  //   Not Operation
+  const notFiltering = await prisma.post.findMany({
+    where: {
+      NOT: [
+        {
+          title: {
+            contains: "title",
+          },
+        },
+      ],
+    },
+  });
+
+  //   Start With
+  const startWith = await prisma.user.findMany({
+    where: {
+      email: {
+        startsWith: "user1",
+      },
+    },
+  });
+  console.log(startWith);
 };
 filtering();
