@@ -16,7 +16,11 @@ const main = async () => {
 
   const findUnique = await prisma.post.findUniqueOrThrow({
     where: {
-      id: 2,
+      id: 9,
+    },
+    select: {
+      title: true,
+      author: true,
     },
   });
   console.log(findUnique);
