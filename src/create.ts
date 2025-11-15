@@ -28,16 +28,19 @@ const main = async () => {
     data: {
       title: "Database Indexing Guide",
       content: "Indexes speed up database queries significantly.",
-      authorId: 1,
+      authorId: 3,
       postCategories: {
-        create: {
-          categoryId: 3,
-          //   category: {
-          //     connect: {
-          //       id: 1,
-          //     },
-          //   },
-        },
+        create: [
+          {
+            categoryId: 1,
+          },
+          {
+            categoryId: 3,
+          },
+          {
+            categoryId: 4,
+          },
+        ],
       },
     },
     include: {
