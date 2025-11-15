@@ -18,6 +18,20 @@ const paginationSorting = async () => {
       id: 20,
     },
   });
-  console.log("cursor pagination", cursorData);
+  //   console.log("cursor pagination", cursorData);
+
+  // order by
+
+  const sortBy = await prisma.post.findMany({
+    orderBy: {
+      id: "desc",
+    },
+    where: {
+      title: "Intro to CI/CD",
+    },
+    skip: 1,
+    take: 1,
+  });
+  console.log(sortBy);
 };
 paginationSorting();
