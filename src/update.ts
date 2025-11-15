@@ -16,7 +16,7 @@ const updates = async () => {
 
   const updateMany = await prisma.post.updateMany({
     where: {
-      title: "Mastering JavaScript",
+      title: "Understanding Databases",
     },
     data: {
       published: true,
