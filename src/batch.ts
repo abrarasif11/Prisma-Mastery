@@ -3,22 +3,26 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 const batch = async () => {
-  const createUser = await prisma.user.create({
+  const createUser = prisma.user.create({
     data: {
-      username: "PrismaAkhter",
-      email: "prisma@akhter.com",
+      username: "Prisma Haque",
+      email: "prisma@haque.com",
     },
   });
-  console.log("Create User", createUser);
 
-  const updateUser = await prisma.user.update({
+  const updateUser = prisma.user.update({
     where: {
-      id: 111,
+      id: 6,
     },
     data: {
-      age: 27,
+      age: 25,
     },
   });
-  console.log("Update User", updateUser);
+
+  const [userData, uploadData] = await prisma.$transaction([
+    createUser,
+    updateUser,
+  ]);
+  console.log(userData, uploadData);
 };
 batch();
