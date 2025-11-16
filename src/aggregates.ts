@@ -22,6 +22,12 @@ const aggregates = async () => {
   });
   //   find num of records
   const countData = await prisma.user.count();
-  console.log(countData);
+  //   find max age
+  const maxAge = await prisma.user.aggregate({
+    _max: {
+      age: true,
+    },
+  });
+  console.log(maxAge);
 };
 aggregates();
