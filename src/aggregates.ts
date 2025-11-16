@@ -20,6 +20,8 @@ const aggregates = async () => {
       age: true,
     },
   });
-  console.log(countAge);
+  //   find num of records
+  const countData = await prisma.user.count();
+  console.log(countData);
 };
 aggregates();
