@@ -14,6 +14,12 @@ const aggregates = async () => {
       age: true,
     },
   });
-  console.log(sumAge);
+  //   count age
+  const countAge = await prisma.user.aggregate({
+    _count: {
+      age: true,
+    },
+  });
+  console.log(countAge);
 };
 aggregates();
